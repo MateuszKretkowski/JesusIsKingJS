@@ -1,0 +1,50 @@
+.navbar {
+    position: relative;
+    width: 100%;
+    height: 16vh;
+}
+.navbar_container {
+    position: relative;
+    display: flex;
+    width: 50%;
+    justify-content: space-around;
+    align-items: flex-end;
+    margin: 0 auto;
+}
+
+.navbar:after {
+    content: "";
+    position: absolute;
+    width: 80%;
+    height: 2px;
+    left: 10%;
+    top: 100%;
+    background: rgb(27,27,27);
+background: radial-gradient(circle, rgba(27,27,27,1) 0%, rgba(40,40,40,0) 100%);
+transition: all 300ms ease;
+}
+
+.navbar:hover:after {
+    width: 100%;
+    left: 0%;
+}
+
+.Logo-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo_navbar {
+    width: 65%;
+}
+
+.Link-wrapper {
+    transition: all 300ms ease;
+}
+
+.Link-wrapper:hover {
+    transform: scale(1.1);
+    letter-spacing: 2px;
+    cursor: pointer;
+}
