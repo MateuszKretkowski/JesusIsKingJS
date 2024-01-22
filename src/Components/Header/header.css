@@ -9,30 +9,32 @@
 }
 
 .header {
-    width: 100%;
-    height: 84vh;
+    width: 95vw;
+    height: 100vh;
+    overflow: hidden;
 }
 
 .header_container {
-    width: 80%;
-    margin: 0 auto;
-    padding-top: 8vh;
+    width: 100%;
+    height: 100%;
+    padding-top: 4vh;
+    padding-right: 4vh;
     flex-direction: column;
+    justify-content: space-between;
+    align-items: end;
 }
 
 .header_text-wrapper {
     width: 60%;
-    text-align: center;
-    margin-bottom: 6vh;
-    gap: 2vh;
+    text-align: end;
     flex-direction: column;
 }
 
-.title-wrapper {
+.Bibleverse_Title {
     position: relative;
 }
 
-.title-wrapper:after,
+.Bibleverse_Title:after,
 .Bibleverse_chapter:after {
     content: "";
     position: absolute;
@@ -45,16 +47,23 @@
     transition: all 300ms ease;
 }
 
-.title-wrapper:hover:after {
+.Bibleverse_Title:hover:after {
     width: 180%;
     left: -40%;
 }
 
+.Bibleverse_Title:after {
+    left: -0%;
+    width: 120%;
+}
+
 
 .desc-wrapper {
+    width: 100%;
     position: relative;
+    align-items: center;
     flex-direction: column;
-    gap: 6vh;
+    margin-right: 8%;
 }
 
 .Bibleverse {
@@ -62,6 +71,7 @@
 
 .Bibleverse_chapter {
     position: relative;
+    margin-top: 6vh;
     padding-bottom: 6px;
 }
 
@@ -71,43 +81,32 @@
 }
 
 .Bibleverse_action_container {
-    width: 50%;
-    flex-direction: column;
-    
-}
-
-.Cross-wrapper {
-    width: 50%;
-    justify-content:space-around;
+    width: 100%;
+    justify-content: space-between;
     align-items: end;
 }
 
-.Cross {
-    width: 20%;
-}
-
-.main_Cross {
-    position: relative;
-    width: 24%;
-}
-
-.main_Cross:after {
-    content: "";
-    position: absolute;
-    top: 10;
-    left: 10;
-    width: 50%;
-    height: 50%;
-    background-color: yellow;
-}
-
 .action-wrapper {
+    height: 60%;
     border: 4px solid black;
     border-radius: 0px;
     padding: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .action-wrapper:hover {
     background-color: #1b1b1b;
     color: hsl(30, 45%, 91%);
+}
+
+.Logo-wrapper {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.logo_navbar {
+    width: 65%;
 }

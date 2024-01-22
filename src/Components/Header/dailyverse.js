@@ -44,7 +44,7 @@ const DailyVerse = () => {
         setVerse(data.content); // Dostosuj tę linijkę do struktury odpowiedzi API
       })
       .catch(error => {
-        setError('Could not fetch the verse, please try again later.');
+        setError('Could not fetch the verse, please try again later. Maybe Mateusz zapomnial tego zrobic.');
         console.error('Error during fetch:', error);
       });
   }, []); // Pusta tablica zależności oznacza, że efekt uruchomi się tylko po pierwszym renderowaniu komponentu

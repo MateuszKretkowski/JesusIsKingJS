@@ -1,11 +1,13 @@
 import Navbar from './Components/navBar/navbar';
 import Header from './Components/Header/header';
+import SideBar from "./Components/SideBar/sidebar"
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <Navbar />
+      <SideBar />
+      {/* <Navbar /> */}
       <Header />
     </div>
   );
