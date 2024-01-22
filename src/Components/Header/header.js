@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import DailyVerse from "./dailyverse.js";
 import "./header.css";
 const Cross = require("../../Images/Cross 2.png");
 
@@ -11,11 +12,7 @@ function Header() {
             <h1 className="Bibleverse_Title">BIBLE VERSE OF THE DAY</h1>
           </div>
           <div className="desc-wrapper">
-            <h2 className="Bibleverse">
-              Lorem Ipsum doler Dolar Homar Fodar Jol Dol Hol Rol Bol Siema Dema
-              Szek Heck? Lorem Ipsum doler Dolar Homar Fodar Jol Dol Hol Rol Bol
-              Siema Dema Szek Heck?
-            </h2>
+          <h3 id="viewing"><DailyVerse></DailyVerse></h3>
             <h5 className="Bibleverse_chapter">Matthew: 23, 3-8</h5>
           </div>
         </div>
