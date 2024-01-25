@@ -1,5 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
+<script
+  type="text/javascript"
+  src="https://pkg.api.bible/fumsV3.min.js"
+></script>
+<script>
+  /* This code ensures that FUMS will be reported correctly even if fumsV3.min.js has not finished loading before an attempt is made. */
+  window.fumsData = window.fumsData || [];
+  window.fums = window.fums || function () {
+    window.fumsData.push(arguments);
+  };
+  fums("config", { userId: "matiatim" });
+</script>
+
   <head>
     <meta charset="utf-8" />
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />

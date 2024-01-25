@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence, animate, stagger } from "framer-motion";
+import SignIn from "../Google Signin/signIn.js";
 import "./sidebar.css";
 import {
   getFirestore,
@@ -26,7 +27,7 @@ function SideBar() {
   useEffect(() => {
     animate(".sidebar_container", { opacity: isOpen ? 1 : 0, width: 300 },       {
       duration: 0.5,
-      stagger: 0.5
+      stagger: 2
     });
   })
   
@@ -52,9 +53,8 @@ function SideBar() {
             </div>
           </div>
           <div className="login-wrapper">
-          <button className="login_btn logout">LOG OUT</button>
-          <button className="login_btn login">LOG IN WITH APPLE</button>
-          <button className="login_btn login">LOG IN WITH GOOGLE</button>
+          <button className="login_btn login">SETTNGS</button>
+          <SignIn />
           </div>
           
         </motion.div>

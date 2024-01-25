@@ -5,8 +5,8 @@ const DailyVerse = () => {
   const [error, setError] = useState('');
 
   useEffect(() => {
-    const apiKey = 'ff75021f5abc98c49f3d0dbcfdc8f379'; // Twój klucz API
-    const bibleId = '61fd76eafa1577c2-02'; // Podaj ID Biblia, dostosuj do potrzeb
+    const apiKey = 'e010ebcc99898fd9568be0e0ada426e4'; // Twój klucz API
+    const bibleId = '9879dbb7cfe39e4d-01'; // Podaj ID Biblia, dostosuj do potrzeb
     const verseId = [
         `JER.29.11`,
         `PSA.23`,
@@ -29,7 +29,7 @@ const DailyVerse = () => {
         `PHP.2.3-4`,
         `MAT.5.43-44`,
       ];
-    const url = `https://api.scripture.api.bible/v1/bibles/${bibleId}/verses/${verseId}?api-key=${apiKey}`;
+    const url = `https://api.scripture.api.bible/v1/bibles/${bibleId}/verses/${verseId[1]}?api-key=${apiKey}`;
 
     fetch(url)
       .then(response => {
@@ -37,6 +37,7 @@ const DailyVerse = () => {
           // Jeśli odpowiedź nie jest w porządku, rzuć błąd, aby przejść do bloku catch
           throw new Error('Network response was not ok');
         }
+        console.log(response.json())
         return response.json();
       })
       .then(data => {
