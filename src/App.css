@@ -33,13 +33,19 @@ font-family: 'Roboto', sans-serif;
   z-index: -1;
 }
 
-.blanket {
-  position: fixed;
-  width: 100vw;
-  height: 100vh;
-  top: 0;
-  left: 0;
-  background-color: #1b1b1b;
+.custom-scrollbar::-webkit-scrollbar {
+  width: 12px; /* lub szerokość jaką chcesz */
+}
+
+/* Styl dla tła paska przewijania */
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #f1f1f1; /* lub kolor jaki chcesz */
+}
+
+/* Styl dla "kciuka" paska przewijania */
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #888; /* lub kolor jaki chcesz */
+  border-radius: 6px; /* lub promień jaki chcesz */
 }
 
 button {

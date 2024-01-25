@@ -1,0 +1,63 @@
+.settings {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+.settings_container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+}
+
+.account-wrapper-settings {
+    width: 20%;
+    text-align: center;
+}
+
+.avatar-wrapper-settings {
+    margin: 2% 0;
+}
+
+.desc-wrapper-account-settings {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.title-settings {
+    margin: 2% 0;
+    font-weight: 900;
+}
+
+.link-settings {
+    margin-bottom: 4%;
+    font-weight: 900;
+}
+
+.where-settings {
+    font-weight: 900;
+}
+
+.helper-wrapper {
+}
+
+.edit {
+    letter-spacing: 6px;
+    font-weight: 900;
+}
+
+.edit:hover {
+    letter-spacing: 10px;
+    cursor: pointer;
+}
+
+.edit:active {
+    letter-spacing: 1px;
+}

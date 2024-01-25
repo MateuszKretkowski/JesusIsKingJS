@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence, animate, stagger } from "framer-motion";
+import { Link, useLocation } from 'react-router-dom';
 import SignIn from "../Google Signin/signIn.js";
 import "./sidebar.css";
 import {
@@ -21,7 +22,7 @@ function SideBar() {
   useEffect(() => {
     animate(".sidebar", { width: isOpen ? 300 : 50 },       {
       type: "linear",
-      duration: 0.3,
+      duration: 0.2,
     });
   })
   useEffect(() => {
@@ -35,6 +36,23 @@ function SideBar() {
   animate(".App", { backgroundColor: isOpen ? "#000000B3" : "#f1f0ea" },{
     duration: 0.7,
   });
+})
+
+useEffect(() => {
+  isOpen ? document.body.style.overflow = 'hidden' : document.body.style.overflow = 'unset';
+})
+
+const [ isSettingsOpen, setIsSettingsOpen ] = useState(false)
+const location = useLocation();
+useEffect(() => {
+  if (location.pathname === '/settings') {
+    console.log(isSettingsOpen);
+    setIsSettingsOpen(true)
+  }
+  else {
+    console.log(isSettingsOpen);
+    setIsSettingsOpen(false)
+  }
 })
 
   return (
@@ -53,7 +71,15 @@ function SideBar() {
             </div>
           </div>
           <div className="login-wrapper">
-          <button className="login_btn login">SETTNGS</button>
+          {isSettingsOpen ?
+          <Link to="/">
+            <button className="login_btn link" onClick={() => { setIsOpen(!isOpen) }}>HOME</button>
+          </Link>
+          :
+          <Link to="/settings">
+            <button className="login_btn link" onClick={() => { setIsOpen(!isOpen) }}>SETTNGS</button>
+          </Link>
+          }
           <SignIn />
           </div>
           
