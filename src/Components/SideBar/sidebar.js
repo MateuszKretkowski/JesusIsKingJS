@@ -77,7 +77,7 @@ useEffect(() => {
           </Link>
           :
           <Link to="/settings">
-            <button className="login_btn link" onClick={() => { setIsOpen(!isOpen) }}>SETTNGS</button>
+            <button className="login_btn link" onClick={() => { setIsOpen(!isOpen) }}>PROFILE</button>
           </Link>
           }
           <SignIn />
