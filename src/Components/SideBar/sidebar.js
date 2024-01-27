@@ -11,6 +11,7 @@ import {
   deleteDoc,
   doc,
 } from "firebase/firestore";
+import Settings from '../Settings/settings.js';
 const defaultAvatar = require("../../Images/avatar.webp");
 
 function SideBar() {
@@ -71,15 +72,15 @@ useEffect(() => {
             </div>
           </div>
           <div className="login-wrapper">
-          {isSettingsOpen ?
-          <Link to="/">
-            <button className="login_btn link" onClick={() => { setIsOpen(!isOpen) }}>HOME</button>
-          </Link>
-          :
-          <Link to="/settings">
-            <button className="login_btn link" onClick={() => { setIsOpen(!isOpen) }}>PROFILE</button>
-          </Link>
-          }
+            {isSettingsOpen ?
+              <Link to="/">
+                <motion.button className="login_btn link"  onClick={() => { setIsOpen(!isOpen) }}>HOME</motion.button>
+              </Link>
+            :
+              <Link to="/settings">
+                <motion.button className="login_btn link" onClick={() => { setIsOpen(!isOpen) }}>PROFILE</motion.button>
+              </Link>
+            }
           <SignIn />
           </div>
           

@@ -1,16 +1,21 @@
 import React, { useEffect, useState } from 'react'
 import { auth, provider } from "./config.js";
 import { signInWithPopup } from "firebase/auth";
+import { useNavigate } from 'react-router-dom';
+import Settings from '../Settings/settings.js';
 
 
 function SignIn() {
-  
+
+  const navigate = useNavigate();
   const [user, setUser] = useState(null);
   const handleClick = () => {
     signInWithPopup(auth, provider).then((result) => {
       const user = result.user;
       setUser(user);
       localStorage.setItem("email", user.email);
+      navigate('/');
+      window.location.reload();
       console.log("LOG ON")
     }).catch((error) => {
       console.log("AN ERROR HAS ACCURED. TRY AGAIN.")
@@ -21,6 +26,8 @@ function SignIn() {
     auth.signOut().then(() => {
       setUser(null);
       localStorage.removeItem("email");
+      navigate('/');
+      window.location.reload();
       console.log("LOG OFF")
     }).catch((error) => {
       console.log("AN ERROR HAS ACCURED. TRY AGAIN.")

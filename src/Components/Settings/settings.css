@@ -77,6 +77,10 @@
     margin: 0 2%;
 }
 
+.edit-wrapper {
+    border: none;
+}
+
 .edit {
     letter-spacing: 6px;
     font-weight: 900;

@@ -76,3 +76,18 @@ h5 {
   font-size: 18px;
   font-weight: 800;
 }
+
+input {
+  background-color: transparent;
+  border: 2px solid black;
+  border-radius: 4px;
+  width: 30%;
+  height: 50%;
+  overflow: scroll;
+  text-align: center;
+}
+
+button {
+  background-color: transparent;
+  
+}
