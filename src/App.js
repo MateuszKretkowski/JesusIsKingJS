@@ -10,20 +10,20 @@ import './App.css';
 function App() {
 
   return (
-<Router>
-      <div className="App">
-        <SideBar />
-        <Routes>
-          <Route path="/" element={
-            <>
-              <Navbar />
-              <Header />
-            </>
-          } />
-          <Route path="/settings" element={<Settings />} />
-        </Routes>
-      </div>
-    </Router>
+      <Router>
+       <div className="App">
+         <SideBar />
+         <Routes>
+           <Route path="/" element={
+             <>
+               <Navbar />
+                <Header />
+              </>
+           } />
+           <Route path="/settings" element={<Settings />} />
+          </Routes>
+        </div>
+      </Router>
   );
 }
 

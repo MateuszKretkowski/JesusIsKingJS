@@ -12,9 +12,14 @@ import {
   doc,
 } from "firebase/firestore";
 import Settings from '../Settings/settings.js';
+import { useUserData } from '../Google Signin/useUserData.js';
+import { db } from '../Google Signin/config.js';
+import { auth } from '../Google Signin/config.js';
 const defaultAvatar = require("../../Images/avatar.webp");
 
 function SideBar() {
+  const { userData, setUserData, isEditing, setIsEditing } = useUserData();
+
   const [isOpen, setIsOpen] = useState(false);
   useEffect(() => {
     animate(".arrow", { rotate: isOpen ? 90 : 0 }, { duration: 0.2 });
@@ -56,6 +61,8 @@ useEffect(() => {
   }
 })
 
+console.log(auth.currentUser)
+
   return (
     <motion.div className="sidebar">
       <motion.div className="stripe" />
@@ -65,22 +72,30 @@ useEffect(() => {
             <div className="avatar-wrapper">
               <img className="avatar"  src={defaultAvatar} />
             </div>
+            {auth.currentUser ?
             <div className="desc-wrapper-account">
-              <h3 className="name">MATEUSZ KRETKOWSKI</h3>
-              <h5 className="name desc">Fullstack Developer with a passion to Design and Code websites from Scratch!</h5>
-              <h5 className="name where">Poland</h5>
+              <h2 className="name">{userData.name}</h2>
+              <h2 className="name desc">{userData.desc}</h2>
+              <h2 className="name from">{userData.from}</h2>
             </div>
+            :
+            <h1>Siema</h1>
+            }
           </div>
           <div className="login-wrapper">
-            {isSettingsOpen ?
-              <Link to="/">
-                <motion.button className="login_btn link"  onClick={() => { setIsOpen(!isOpen) }}>HOME</motion.button>
-              </Link>
-            :
-              <Link to="/settings">
-                <motion.button className="login_btn link" onClick={() => { setIsOpen(!isOpen) }}>PROFILE</motion.button>
-              </Link>
-            }
+            {auth.currentUser ? (
+    isSettingsOpen ? (
+      <Link to="/">
+        <motion.button className="login_btn link" onClick={() => setIsOpen(!isOpen)}>HOME</motion.button>
+      </Link>
+    ) : (
+      <Link to="/settings">
+        <motion.button className="login_btn link" onClick={() => setIsOpen(!isOpen)}>PROFILE</motion.button>
+      </Link>
+    )
+  ) : (
+    <h1></h1>
+  )}
           <SignIn />
           </div>
           

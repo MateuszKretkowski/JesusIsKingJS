@@ -52,8 +52,9 @@
 
 .links-wrapper {
     display: flex;
-    justify-content: end;
+    justify-content: space-around;
     gap: 10%;
+    width: 80%;
     margin-top: 3%;
 }
 
@@ -67,6 +68,14 @@
 
 .where {
     font-weight: 900;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+.where:hover {
+    letter-spacing: 4px;
+    transform: scale(1.2);
+    cursor: pointer;
 }
 
 .helper-wrapper {
