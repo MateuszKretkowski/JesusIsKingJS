@@ -11,21 +11,21 @@
     height: 100%;
     display: flex;
     justify-content: start;
-    align-items: start;
+    align-items: center;
     flex-direction: column;
     padding: 2% 2%;
 }
 
 .account-wrapper-settings {
-    width: 60%;
+    width: 70%;
     height: 50%;
     text-align: center;
     display: flex;
     justify-content: center;
-    align-items: start;
+    align-items: center;
     flex-direction: column;
     gap: 2%;
-    margin: 0% 2%;
+    margin: 2% 2%;
 }
 
 .avatar-wrapper-settings {
