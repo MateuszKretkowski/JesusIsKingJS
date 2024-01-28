@@ -3,14 +3,14 @@ import Navbar from './Components/navBar/navbar';
 import Header from './Components/Header/header';
 import SideBar from "./Components/SideBar/sidebar";
 import Settings from "./Components/Settings/settings.js";
-import { BrowserRouter as Router, Switch, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence, animate, stagger } from "framer-motion";
 import './App.css';
 
 function App() {
 
   return (
-      <Router>
+      <BrowserRouter>
        <div className="App">
          <SideBar />
          <Routes>
@@ -23,7 +23,7 @@ function App() {
            <Route path="/settings" element={<Settings />} />
           </Routes>
         </div>
-      </Router>
+      </BrowserRouter>
   );
 }
 

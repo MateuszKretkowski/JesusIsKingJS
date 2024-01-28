@@ -1,24 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence, animate, stagger } from "framer-motion";
 import { Link, useLocation } from 'react-router-dom';
-import SignIn from "../Google Signin/signIn.js";
+import { signInWithGoogle, signOut, isUserLoggedIn } from "../Google Signin/config.js";
 import "./sidebar.css";
-import {
-  getFirestore,
-  collection,
-  onSnapshot,
-  addDoc,
-  deleteDoc,
-  doc,
-} from "firebase/firestore";
 import Settings from '../Settings/settings.js';
-import { useUserData } from '../Google Signin/useUserData.js';
-import { db } from '../Google Signin/config.js';
-import { auth } from '../Google Signin/config.js';
 const defaultAvatar = require("../../Images/avatar.webp");
 
 function SideBar() {
-  const { userData, setUserData, isEditing, setIsEditing } = useUserData();
 
   const [isOpen, setIsOpen] = useState(false);
   useEffect(() => {
@@ -61,8 +49,6 @@ useEffect(() => {
   }
 })
 
-console.log(auth.currentUser)
-
   return (
     <motion.div className="sidebar">
       <motion.div className="stripe" />
@@ -72,18 +58,18 @@ console.log(auth.currentUser)
             <div className="avatar-wrapper">
               <img className="avatar"  src={defaultAvatar} />
             </div>
-            {auth.currentUser ?
+            {isUserLoggedIn ?
             <div className="desc-wrapper-account">
-              <h2 className="name">{userData.name}</h2>
-              <h2 className="name desc">{userData.desc}</h2>
-              <h2 className="name from">{userData.from}</h2>
+              <h2 className="name"></h2>
+              <h2 className="name desc"></h2>
+              <h2 className="name from"></h2>
             </div>
             :
             <h1>Siema</h1>
             }
           </div>
           <div className="login-wrapper">
-            {auth.currentUser ? (
+            {isUserLoggedIn() ? (
     isSettingsOpen ? (
       <Link to="/">
         <motion.button className="login_btn link" onClick={() => setIsOpen(!isOpen)}>HOME</motion.button>
@@ -96,7 +82,11 @@ console.log(auth.currentUser)
   ) : (
     <h1></h1>
   )}
-          <SignIn />
+          {isUserLoggedIn ?
+          <button onClick={signInWithGoogle} >SIGN IN WITH GOOGLE</button>
+          :
+          <button onClick={signOut} >SIGN OUT</button>
+          }
           </div>
           
         </motion.div>
