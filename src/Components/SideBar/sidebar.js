@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence, animate, stagger } from "framer-motion";
 import { Link, useLocation } from 'react-router-dom';
-import { signInWithGoogle, signOut, isUserLoggedIn } from "../Google Signin/config.js";
+import { signInWithGoogle, signOutUser, isUserLoggedIn, } from "../Google Signin/config.js";
 import "./sidebar.css";
 import Settings from '../Settings/settings.js';
 const defaultAvatar = require("../../Images/avatar.webp");
@@ -40,11 +40,9 @@ const [ isSettingsOpen, setIsSettingsOpen ] = useState(false)
 const location = useLocation();
 useEffect(() => {
   if (location.pathname === '/settings') {
-    console.log(isSettingsOpen);
     setIsSettingsOpen(true)
   }
   else {
-    console.log(isSettingsOpen);
     setIsSettingsOpen(false)
   }
 })
@@ -82,10 +80,10 @@ useEffect(() => {
   ) : (
     <h1></h1>
   )}
-          {isUserLoggedIn ?
-          <button onClick={signInWithGoogle} >SIGN IN WITH GOOGLE</button>
+          {isUserLoggedIn() ?
+          <button onClick={signOutUser} >SIGN OUT</button>
           :
-          <button onClick={signOut} >SIGN OUT</button>
+          <button onClick={signInWithGoogle} >SIGN IN WITH GOOGLE</button>
           }
           </div>
           

@@ -14,7 +14,7 @@ font-family: 'Roboto', sans-serif;
 
 .App {
   position: relative;
-  background-color: #f1f0ea;
+  background-color: #ffffff;
   width: 100%;
   height: 100%;
   font-family: 'Inter', sans-serif;
@@ -37,16 +37,6 @@ font-family: 'Roboto', sans-serif;
   width: 12px; /* lub szerokość jaką chcesz */
 }
 
-/* Styl dla tła paska przewijania */
-.custom-scrollbar::-webkit-scrollbar-track {
-  background: #f1f1f1; /* lub kolor jaki chcesz */
-}
-
-/* Styl dla "kciuka" paska przewijania */
-.custom-scrollbar::-webkit-scrollbar-thumb {
-  background: #888; /* lub kolor jaki chcesz */
-  border-radius: 6px; /* lub promień jaki chcesz */
-}
 
 button {
 

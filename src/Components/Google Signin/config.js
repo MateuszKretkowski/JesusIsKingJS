@@ -1,8 +1,9 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
-import { getAuth, GoogleAuthProvider, signInWithRedirect, updateProfile } from "firebase/auth"
-import { getFirestore, collection, addDoc, getDocs } from 'firebase/firestore';
+import { getAuth, GoogleAuthProvider, signInWithRedirect, onAuthStateChanged, updateProfile, signInWithPopup, } from "firebase/auth"
+import { getFirestore, Firestore, collection, doc, setDoc, addDoc, getDocs } from 'firebase/firestore';
+import { useEffect } from "react";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -21,40 +22,29 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
-
-const auth = getAuth(app);
-const db = getFirestore(app);
 
 // AUTHENTICATION
+const auth = getAuth(app);
 
 export function signInWithGoogle() {
-  return signInWithRedirect(auth, new GoogleAuthProvider());
+  return signInWithRedirect(auth, new GoogleAuthProvider()) + window.location.reload;
 }
 
 export function isUserLoggedIn() {
-  return auth.currentUser + console.log(auth.currentUser);;
+  const isLoggedIn = auth.currentUser !== null; // Jeśli currentUser istnieje, isLoggedIn = true
+  console.log(isLoggedIn);
+  return isLoggedIn;
 }
 
-export function signOut() {
-  return auth.signOut();
+
+export function signOutUser() {
+  console.log(auth.currentUser)
+  return auth.signOut() + window.location.reload();
 }
 
 // CLOUD FIRESTORE
-
-export function createUser() {
-  try {
-    const docRef = addDoc(collection(db, "users"), {
-      name: "USER",
-      description: "You Can Create Your Own Description Right Now!",
-      link: "JESUSISKING.com",
-      from: "POLAND",
-    });
-    console.log("Document written with ID: ", docRef.id);
-  } catch (e) {
-    console.error("Error adding document: ", e);
-  }
-}
+const db = getFirestore(app);
+const firestore = new Firestore();
 
 export function readUsers() {
   const querySnapshot = getDocs(collection(db, "users"));
@@ -62,3 +52,5 @@ export function readUsers() {
     console.log(`${doc.id} => ${doc.data()}`);
   });
 }
+
+
