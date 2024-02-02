@@ -1,8 +1,8 @@
 import React, {useEffect} from "react";
-import Navbar from './Components/navBar/navbar';
-import Header from './Components/Header/header';
-import SideBar from "./Components/SideBar/sidebar";
-import Settings from "./Components/Settings/settings.js";
+import Navbar from './Components/navBar/navbar.tsx';
+import Header from './Components/Header/header.tsx';
+import SideBar from "./Components/SideBar/sidebar.tsx";
+import Settings from "./Components/Settings/settings.tsx";
 import { BrowserRouter, Routes, Route, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence, animate, stagger } from "framer-motion";
 import './App.css';

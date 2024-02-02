@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import DailyVerse from "./dailyverse.js";
+import DailyVerse from "./dailyverse.tsx";
 import "./header.css";
-import { createUser } from "../Google Signin/config.js";
 const Cross = require("../../Images/Cross 2.png");
 const JIKLogoLong = require("../../Images/JIK-Logo-long 2.png");
 

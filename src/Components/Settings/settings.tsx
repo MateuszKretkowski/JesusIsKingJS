@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import "./settings.css";
 import { motion, AnimatePresence, animate, stagger, useAnimation } from "framer-motion";
-import Modal from './Modal.js';
+import Modal from './Modal.tsx';
 import { isUserLoggedIn } from '../Google Signin/config.js';
 const defaultAvatar = require("../../Images/avatar.webp");
 
@@ -37,11 +37,10 @@ function Settings() {
     <div className="settings">
       <div className="settings_container">
         <div className="account-wrapper-settings">
-          <motion.div className="avatar-wrapper-settings"
-           variants={variantsText}
-           initial={controls}
-           exit={controls}
-          >
+        <motion.div className="avatar-wrapper-settings"
+          variants={variantsText}
+          initial={controls}
+          exit={controls}>
             <img className="avatar-settings" src={defaultAvatar} />
           </motion.div>
           <div className="desc-wrapper-account-settings">
@@ -49,10 +48,7 @@ function Settings() {
                 variants={variantsText}
                 initial={controls}
                 animate={controls}
-                exit={controls}
-
-
-              ></motion.h3>
+                exit={controls}></motion.h3>
             <motion.h2 className=""
                 variants={variantsText}
                 initial={controls}
